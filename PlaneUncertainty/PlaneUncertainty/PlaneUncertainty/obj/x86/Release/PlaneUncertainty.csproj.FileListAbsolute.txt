@@ -1,0 +1,7 @@
+D:\Projects\PlaneUncertainty\PlaneUncertainty\PlaneUncertainty\bin\x86\Release\Content\Knight_Sprite_Sheet.xnb
+D:\Projects\PlaneUncertainty\PlaneUncertainty\PlaneUncertainty\bin\x86\Release\PlaneUncertainty.exe
+D:\Projects\PlaneUncertainty\PlaneUncertainty\PlaneUncertainty\bin\x86\Release\PlaneUncertainty.pdb
+D:\Projects\PlaneUncertainty\PlaneUncertainty\PlaneUncertainty\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Projects\PlaneUncertainty\PlaneUncertainty\PlaneUncertainty\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Projects\PlaneUncertainty\PlaneUncertainty\PlaneUncertainty\obj\x86\Release\PlaneUncertainty.exe
+D:\Projects\PlaneUncertainty\PlaneUncertainty\PlaneUncertainty\obj\x86\Release\PlaneUncertainty.pdb
