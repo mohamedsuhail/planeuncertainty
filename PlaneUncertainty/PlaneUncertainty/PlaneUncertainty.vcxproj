@@ -140,20 +140,42 @@
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Application\PlaneUncertainty.h" />
+    <ClInclude Include="Source\Entities\Components\Renderable\Renderable.h" />
     <ClInclude Include="Source\Application\Resource.h" />
     <ClInclude Include="Source\Application\stdafx.h" />
     <ClInclude Include="Source\Application\targetver.h" />
+    <ClInclude Include="Source\Entities\Components\Component.h" />
+    <ClInclude Include="Source\Entities\Entity.h" />
+    <ClInclude Include="Source\Renderer\RendererClientInterface.h" />
     <ClInclude Include="Source\Renderer\Renderer.h" />
     <ClInclude Include="Source\Renderer\Sprite.h" />
+    <ClInclude Include="Source\Time\GameTime.h" />
+    <ClInclude Include="Source\TinyXML\tinystr.h" />
+    <ClInclude Include="Source\TinyXML\tinyxml.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Application\PlaneUncertainty.cpp" />
+    <ClCompile Include="Source\Entities\Components\Renderable\Renderable.cpp" />
+    <ClCompile Include="Source\Application\Application.cpp" />
+    <ClCompile Include="Source\Entities\Components\Component.cpp" />
+    <ClCompile Include="Source\Entities\Entity.cpp" />
     <ClCompile Include="Source\Renderer\Renderer.cpp" />
     <ClCompile Include="Source\Renderer\Sprite.cpp" />
+    <ClCompile Include="Source\Time\GameTime.cpp" />
+    <ClCompile Include="Source\TinyXML\tinystr.cpp" />
+    <ClCompile Include="Source\TinyXML\tinyxml.cpp" />
+    <ClCompile Include="Source\TinyXML\tinyxmlerror.cpp" />
+    <ClCompile Include="Source\TinyXML\tinyxmlparser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\Application\PlaneUncertainty.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xsd Include="Resources\Textures\TextureIDs.xml">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </Xsd>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

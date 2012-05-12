@@ -4,7 +4,8 @@
 
 void Renderer::DebugCrap()
 {
-	//m_Sprite.LoadTexture()
+	m_Sprite.Init(d3d_device);
+	bool worked = m_Sprite.LoadTexture( "Resources\\Textures\\Knight_Sprite_Sheet.png", d3d_device );
 }
 
 
@@ -52,6 +53,9 @@ bool Renderer::Init( HWND & hwnd, LPCSTR name, HINSTANCE the_hinstance )
 		return false;
 	}
 
+	DebugCrap();
+	
+
 	return true;
 }
 
@@ -80,15 +84,20 @@ void Renderer::fill_out_present(D3DPRESENT_PARAMETERS *present, HWND & hwnd)
 	present->PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
 }
 
-void Renderer::WindowResize( HWND & hwnd )
+void Renderer::DeviceLost( HWND & hwnd )
 {
-	if (d3d_device) {
+	if (d3d_device) 
+	{
 		D3DPRESENT_PARAMETERS present;
 		fill_out_present(&present, hwnd);
-		if (present.BackBufferWidth && present.BackBufferHeight) {
+		if (present.BackBufferWidth && present.BackBufferHeight) 
+		{
 			d3d_device->Reset(&present);
 			InvalidateRect(hwnd, NULL, FALSE);
 		}
+		//destroy then reset sprites!!!
+		m_Sprite.Destroy();
+		DebugCrap();
 	}
 }
 
@@ -205,12 +214,22 @@ bool Renderer::Draw( HWND & hwnd )
 	p[4] = p[0];  // Make a closed loop.
 	result = d3d_device->DrawPrimitiveUP(D3DPT_LINESTRIP, 4, p, sizeof(Line_Vertex));
 
-
+	D3DXVECTOR3 vec;
+	m_Sprite.Draw( vec );
 	// Finish rendering; page flip.
 	HRESULT hr = d3d_device->EndScene();
 	hr = d3d_device->Present(NULL, NULL, NULL, NULL);
 
 
 	return true;
+}
+
+void Renderer::Destroy()
+{
+	m_Sprite.Destroy();
+	
+	d3d_device->Release();
+	d3d_object->Release();
+
 }
 
