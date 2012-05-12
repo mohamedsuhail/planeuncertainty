@@ -1,16 +1,27 @@
+#ifndef RENDERER_H_
+#define RENDERER_H_
+
 #include <windows.h>
 #include <d3d9.h>
+#include <vector>
 
 #include "Sprite.h"
+#include "RendererClientInterface.h"
 
 class Renderer
 {
+	struct SpriteForVector
+	{
+		Sprite m_Sprite;
+		std::vector<RenderClientInterface*> m_SpriteClients;
+	};
+
 public:
 	bool Init( HWND & hwnd, LPCSTR name, HINSTANCE the_hinstance );
 
 	void fill_out_present(D3DPRESENT_PARAMETERS *present, HWND & hwnd) ;
 
-	void WindowResize( HWND & hwnd );
+	void DeviceLost( HWND & hwnd );
 
 	bool Draw( HWND & hwnd );
 	void draw_line(float x0, float y0, float x1, float y1, unsigned long color);
@@ -18,6 +29,8 @@ public:
 
 
 	void DebugCrap();
+
+	void Destroy();
 
 	IDirect3D9 *d3d_object;
 	IDirect3DDevice9 *d3d_device;
@@ -28,3 +41,4 @@ public:
 	//DEBUG
 	Sprite m_Sprite;
 };
+#endif//RENDERER_H_

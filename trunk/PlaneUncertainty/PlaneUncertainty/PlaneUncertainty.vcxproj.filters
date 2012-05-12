@@ -16,6 +16,12 @@
     <Filter Include="Renderer">
       <UniqueIdentifier>{7f7bc462-caa0-419c-a004-8330925f93b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{a2000bae-b161-45f1-859e-b4fef37f9b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Components">
+      <UniqueIdentifier>{5c812f64-140d-490b-b838-ab1e3cedea1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -30,9 +36,6 @@
     <ClInclude Include="Source\Renderer\Renderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Application\PlaneUncertainty.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Application\Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -45,21 +48,71 @@
     <ClInclude Include="Source\Renderer\Sprite.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Entities\Entity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Entities\Components\Component.h">
+      <Filter>Entities\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Entities\Components\Renderable\Renderable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Time\GameTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\RendererClientInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TinyXML\tinystr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TinyXML\tinyxml.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Application\PlaneUncertainty.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Renderer\Renderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\Sprite.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Entities\Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Entities\Components\Component.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Entities\Components\Renderable\Renderable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Time\GameTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Application\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TinyXML\tinystr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TinyXML\tinyxml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TinyXML\tinyxmlparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TinyXML\tinyxmlerror.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\Application\PlaneUncertainty.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xsd Include="Resources\Textures\TextureIDs.xml">
+      <Filter>Header Files</Filter>
+    </Xsd>
   </ItemGroup>
 </Project>

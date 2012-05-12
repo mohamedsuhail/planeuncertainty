@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include <string.h>
 
 void Sprite::Draw( D3DXVECTOR3 v3ScreenPosition )
 {
@@ -21,4 +22,10 @@ bool Sprite::LoadTexture( const char* pFileName, IDirect3DDevice9* d3d_device  )
 bool Sprite::Init( IDirect3DDevice9* d3d_device )
 {
 	return SUCCEEDED( D3DXCreateSprite(d3d_device,&m_d3dSprite) );
+}
+
+void Sprite::Destroy()
+{
+	m_d3dTexture->Release();
+	m_d3dSprite->Release();
 }
