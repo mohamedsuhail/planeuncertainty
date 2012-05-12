@@ -51,7 +51,7 @@ namespace PlaneUncertainty
             // TODO: use this.Content to load your game content here
             Animation anim = new Animation();
             anim.Init( entity );
-            anim.LoadTexture( "Knight_Sprite_Sheet", this.Content);
+            anim.LoadTexture( "Knight_Sprite_Sheet", this.Content, 6);
         }
 
         /// <summary>
@@ -75,6 +75,9 @@ namespace PlaneUncertainty
                 this.Exit();
 
             // TODO: Add your update logic here
+            int iMilliseconds = gameTime.ElapsedGameTime.Milliseconds;
+            float fDeltaT = ( (float)iMilliseconds / 1000f );
+            UpdateComponent.UpdateAll( fDeltaT );
 
             base.Update( gameTime );
         }
@@ -86,7 +89,7 @@ namespace PlaneUncertainty
         protected override void Draw( GameTime gameTime )
         {
             GraphicsDevice.Clear( Color.CornflowerBlue );
-
+            
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             Renderable.DrawAll( spriteBatch );

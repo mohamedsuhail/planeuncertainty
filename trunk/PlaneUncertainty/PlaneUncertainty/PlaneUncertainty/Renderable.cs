@@ -6,15 +6,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using System.Diagnostics;
-//adding a comment
+
 namespace PlaneUncertainty
 {
     class Renderable : Component
     {
-        public virtual void Init( Entity Parent )
+        public override void Init( Entity Parent )
         {
             base.Init( Parent );
-            m_eType = eType.Renderable;
             s_RenderList.Add( this );
         }
 
@@ -24,7 +23,7 @@ namespace PlaneUncertainty
             //TODO: remove it from the content manager that was holding it
         }
 
-        public void Draw( SpriteBatch Renderer )
+        public virtual void Draw( SpriteBatch Renderer )
         {
             Renderer.Draw( m_Texture, m_vPosition, Color.White );
         }
@@ -43,7 +42,16 @@ namespace PlaneUncertainty
             }
         }
 
+        public override Component.eType Type
+        {
+            get
+            {
+                return eType.Renderable;
+            }
+        }
+
         protected static List<Renderable> s_RenderList = new List<Renderable>();
+        protected static float m_fFrameTime = 0f;
         protected Vector2 m_vPosition = Vector2.Zero;
         protected Texture2D m_Texture = null;
     }
