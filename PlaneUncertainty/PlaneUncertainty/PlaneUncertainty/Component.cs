@@ -25,25 +25,24 @@ namespace PlaneUncertainty
             Debug.Assert( !m_bInitialised );
             m_Parent = Parent;
             m_bInitialised = true;
-            m_P
+            Parent.AddComponent( this );
         }
 
-        public eType Type
+        public virtual eType Type
         {
             get
             {
-                Debug.Assert( m_eType != eType.INVALID );
-                return m_eType;
+                return eType.INVALID;
             }
         }
 
         public virtual bool Valid()
         {
-            return m_bInitialised && m_eType != eType.INVALID;
+            return m_bInitialised && Type != eType.INVALID;
         }
 
+
         protected Entity m_Parent = null;
-        protected eType m_eType = eType.INVALID;
         protected bool m_bInitialised = false;
     }
 }
