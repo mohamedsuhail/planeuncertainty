@@ -146,7 +146,6 @@
     <ClInclude Include="Source\Application\targetver.h" />
     <ClInclude Include="Source\Entities\Components\Component.h" />
     <ClInclude Include="Source\Entities\Entity.h" />
-    <ClInclude Include="Source\Renderer\RendererClientInterface.h" />
     <ClInclude Include="Source\Renderer\Renderer.h" />
     <ClInclude Include="Source\Renderer\Sprite.h" />
     <ClInclude Include="Source\Time\GameTime.h" />
