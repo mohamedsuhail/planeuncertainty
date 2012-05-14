@@ -60,9 +60,6 @@
     <ClInclude Include="Source\Time\GameTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Renderer\RendererClientInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\TinyXML\tinystr.h">
       <Filter>Header Files</Filter>
     </ClInclude>

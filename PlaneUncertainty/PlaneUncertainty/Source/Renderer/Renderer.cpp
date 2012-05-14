@@ -1,11 +1,11 @@
 #include "Renderer.h"
-
+#include "Sprite.h"
 
 
 void Renderer::DebugCrap()
 {
-	m_Sprite.Init(d3d_device);
-	bool worked = m_Sprite.LoadTexture( "Resources\\Textures\\Knight_Sprite_Sheet.png", d3d_device );
+	//m_Sprite.Init(d3d_device);
+	//bool worked = m_Sprite.LoadTexture( "Resources\\Textures\\Knight_Sprite_Sheet.png", d3d_device );
 }
 
 
@@ -96,7 +96,7 @@ void Renderer::DeviceLost( HWND & hwnd )
 			InvalidateRect(hwnd, NULL, FALSE);
 		}
 		//destroy then reset sprites!!!
-		m_Sprite.Destroy();
+		//m_Sprite.Destroy();
 		DebugCrap();
 	}
 }
@@ -215,7 +215,7 @@ bool Renderer::Draw( HWND & hwnd )
 	result = d3d_device->DrawPrimitiveUP(D3DPT_LINESTRIP, 4, p, sizeof(Line_Vertex));
 
 	D3DXVECTOR3 vec;
-	m_Sprite.Draw( vec );
+	//m_Sprite.Draw( vec );
 	// Finish rendering; page flip.
 	HRESULT hr = d3d_device->EndScene();
 	hr = d3d_device->Present(NULL, NULL, NULL, NULL);
@@ -226,7 +226,7 @@ bool Renderer::Draw( HWND & hwnd )
 
 void Renderer::Destroy()
 {
-	m_Sprite.Destroy();
+	//m_Sprite.Destroy();
 	
 	d3d_device->Release();
 	d3d_object->Release();

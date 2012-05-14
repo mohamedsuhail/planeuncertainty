@@ -5,16 +5,12 @@
 #include <d3d9.h>
 #include <vector>
 
-#include "Sprite.h"
-#include "RendererClientInterface.h"
+//#include "Sprite.h"
+
+class Sprite;
 
 class Renderer
 {
-	struct SpriteForVector
-	{
-		Sprite m_Sprite;
-		std::vector<RenderClientInterface*> m_SpriteClients;
-	};
 
 public:
 	bool Init( HWND & hwnd, LPCSTR name, HINSTANCE the_hinstance );
@@ -36,9 +32,7 @@ public:
 	IDirect3DDevice9 *d3d_device;
 	float m_fAppscaleX;
 	float m_fAppscaleY;
-
-
-	//DEBUG
-	Sprite m_Sprite;
+	std::vector<Sprite*>m_Sprites;
+	
 };
 #endif//RENDERER_H_
