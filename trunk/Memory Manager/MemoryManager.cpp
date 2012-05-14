@@ -7,7 +7,7 @@ namespace MemoryManager
 {
 	const unsigned int MM_POOL_SIZE = 65535;
 	const unsigned int MM_POOL_NUM = 10;
-	char MM_pool[MM_POOL_SIZE];
+	char MM_pool[MM_POOL_NUM][MM_POOL_SIZE];
 
 	struct Head
 	{
@@ -19,9 +19,13 @@ namespace MemoryManager
 	// Initialize set up any data needed to manage the memory pool
 	void initializeMemoryManager(void)
 	{
-		memset(&MM_pool[0],0,MM_POOL_SIZE);
-		Head first(MM_POOL_SIZE-sizeof(Head));
-		memcpy(&MM_pool[0],&first,sizeof(Head));
+		for( int i(0); i < MM_POOL_NUM; ++i )
+		{
+			memset(&MM_pool[i][0],0,MM_POOL_SIZE);
+			Head first(MM_POOL_SIZE-sizeof(Head));
+			memcpy(&MM_pool[i][0],&first,sizeof(Head));
+		}
+
 	}
 
 
@@ -31,31 +35,34 @@ namespace MemoryManager
 	void* allocate(unsigned int aSize, bool bAllowUnfragmentation )
 	{
 		//First fit method
-		for(int i=0;i<MM_POOL_SIZE;/*NOTHING*/)
-		{	
-			Head* iter = (Head*)&MM_pool[i];
-			//if we have reached a free chunk and have enough memory to satisfy the request
-			if(iter->free&&iter->chunkSize>=aSize)
-			{
-				//set the header to being used
-				iter->free=false;
-				//if the chunk size is bigger than the required size and the size of the new head
-				if(iter->chunkSize>aSize+sizeof(Head))
+		for( int j(0); j < MM_POOL_NUM; ++j )
+		{
+			for(int i=0;i<MM_POOL_SIZE;/*NOTHING*/)
+			{	
+				Head* iter = (Head*)&MM_pool[j][i];
+				//if we have reached a free chunk and have enough memory to satisfy the request
+				if(iter->free&&iter->chunkSize>=aSize)
 				{
-					//create a new head at the end of the chunk and set its chunk size
-					Head nextHead(iter->chunkSize-aSize-sizeof(Head));
-					//copy it into position at the end of the chunk
-					memcpy(&MM_pool[i+aSize+sizeof(Head)],&nextHead,sizeof(Head));
-					//resize the current headers chunk to match the requested memory
-					iter->chunkSize=aSize;
+					//set the header to being used
+					iter->free=false;
+					//if the chunk size is bigger than the required size and the size of the new head
+					if(iter->chunkSize>aSize+sizeof(Head))
+					{
+						//create a new head at the end of the chunk and set its chunk size
+						Head nextHead(iter->chunkSize-aSize-sizeof(Head));
+						//copy it into position at the end of the chunk
+						memcpy(&MM_pool[j][i+aSize+sizeof(Head)],&nextHead,sizeof(Head));
+						//resize the current headers chunk to match the requested memory
+						iter->chunkSize=aSize;
+					}
+					//return a reference to the start of the chunk
+					return &MM_pool[j][i+sizeof(Head)];
 				}
-				//return a reference to the start of the chunk
-				return &MM_pool[i+sizeof(Head)];
-			}
-			else
-			{
-				//move i along to the next head
-				i+=iter->chunkSize+sizeof(Head);
+				else
+				{
+					//move i along to the next head
+					i+=iter->chunkSize+sizeof(Head);
+				}
 			}
 		}
 		if( bAllowUnfragmentation )
@@ -83,18 +90,22 @@ namespace MemoryManager
 
 	void unfragment()
 	{
-		int i=0;
-		while(i<MM_POOL_SIZE)
-		{	
-			Head* iter = (Head*)&MM_pool[i];
-			Head* next = (Head*)&MM_pool[i+iter->chunkSize+sizeof(Head)];
-			if(iter->free&&next->free)
-			{
-				iter->chunkSize+=next->chunkSize+sizeof(Head);
-				memset(next,0,sizeof(Head));
+		for( int j(0); j < MM_POOL_NUM; ++j )
+		{
+			int i=0;
+			while(i<MM_POOL_SIZE)
+			{	
+				Head* iter = (Head*)&MM_pool[j][i];
+				Head* next = (Head*)&MM_pool[j][i+iter->chunkSize+sizeof(Head)];
+				if(iter->free&&next->free)
+				{
+					iter->chunkSize+=next->chunkSize+sizeof(Head);
+					memset(next,0,sizeof(Head));
+				}
+				i+=iter->chunkSize+sizeof(Head);
 			}
-			i+=iter->chunkSize+sizeof(Head);
 		}
+
 	}
 
 	// Will scan the memory pool and return the total free space remaining
@@ -102,15 +113,19 @@ namespace MemoryManager
 	{
 		unfragment();
 		int total=0;
-		for(int i=0;i<MM_POOL_SIZE;/*NOTHING*/)
+		for( int j(0); j < MM_POOL_NUM; ++j )
 		{
-			Head* iter = (Head*)&MM_pool[i];
-			if(iter->free)
+			for(int i=0;i<MM_POOL_SIZE;/*NOTHING*/)
 			{
-				total+=iter->chunkSize;
+				Head* iter = (Head*)&MM_pool[j][i];
+				if(iter->free)
+				{
+					total+=iter->chunkSize;
+				}
+				i+=iter->chunkSize+sizeof(Head);
 			}
-			i+=iter->chunkSize+sizeof(Head);
 		}
+
 
 		return total;
 	}
@@ -120,15 +135,19 @@ namespace MemoryManager
 	{
 		unfragment();
 		int largest=0;
-		for(int i=0;i<MM_POOL_SIZE;/*NOTHING*/)
+		for( int j(0); j < MM_POOL_NUM; ++j )
 		{
-			Head* iter = (Head*)&MM_pool[i];
-			if(iter->free&&iter->chunkSize>largest)
+			for(int i=0;i<MM_POOL_SIZE;/*NOTHING*/)
 			{
-				largest = iter->chunkSize;
+				Head* iter = (Head*)&MM_pool[j][i];
+				if(iter->free&&iter->chunkSize>largest)
+				{
+					largest = iter->chunkSize;
+				}
+				i+=iter->chunkSize+sizeof(Head);
 			}
-			i+=iter->chunkSize+sizeof(Head);
 		}
+
 
 		return largest;
 	}
@@ -138,14 +157,17 @@ namespace MemoryManager
 	{
 		unfragment();
 		int smallest = MM_POOL_SIZE;
-		for(int i=0;i<MM_POOL_SIZE;/*NOTHING*/)
+		for( int j(0); j < MM_POOL_NUM; ++j )
 		{
-			Head* iter = (Head*)&MM_pool[i];
-			if(iter->free&&iter->chunkSize<smallest)
+			for(int i=0;i<MM_POOL_SIZE;/*NOTHING*/)
 			{
-				smallest = iter->chunkSize;
+				Head* iter = (Head*)&MM_pool[j][i];
+				if(iter->free&&iter->chunkSize<smallest)
+				{
+					smallest = iter->chunkSize;
+				}
+				i+=iter->chunkSize+sizeof(Head);
 			}
-			i+=iter->chunkSize+sizeof(Head);
 		}
 
 		return smallest;
