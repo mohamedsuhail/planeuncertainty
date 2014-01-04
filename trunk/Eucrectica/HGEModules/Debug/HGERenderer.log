@@ -1,0 +1,21 @@
+﻿Build started 04/09/2011 15:39:01.
+     1>Project "D:\Projects\Eucrectica\HGERenderer\HGERenderer.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\HGERenderer.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../Type_And_Define_Library /I../Haaf /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /FISafe_Includes.h /analyze- /errorReport:prompt Renderer\Renderer.cpp -D_SCL_SECURE_NO_WARNINGS 
+         Renderer.cpp
+     1>d:\projects\eucrectica\hgerenderer\renderer\renderer.cpp(87): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>d:\projects\eucrectica\hgerenderer\renderer\renderer.cpp(87): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\Projects\Eucrectica\Debug\HGERenderer.lib" ..\Haaf\lib\vc\hge.lib ..\Haaf\lib\vc\hgehelp.lib /NOLOGO Debug\Animation.obj
+         Debug\Renderer.obj
+         HGERenderer.vcxproj -> D:\Projects\Eucrectica\Debug\HGERenderer.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\HGERenderer.unsuccessfulbuild".
+         Touching "Debug\HGERenderer.lastbuildstate".
+     1>Done Building Project "D:\Projects\Eucrectica\HGERenderer\HGERenderer.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.95

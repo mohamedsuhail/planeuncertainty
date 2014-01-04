@@ -1,0 +1,17 @@
+﻿Build started 31/08/2011 11:04:43.
+     1>Project "D:\Projects\Eucrectica\HGERenderer\HGERenderer.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\HGERenderer.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         HGERenderer.vcxproj -> D:\Projects\Eucrectica\Release\HGERenderer.lib
+       FinalizeBuildStatus:
+         Deleting file "Release\HGERenderer.unsuccessfulbuild".
+         Touching "Release\HGERenderer.lastbuildstate".
+     1>Done Building Project "D:\Projects\Eucrectica\HGERenderer\HGERenderer.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.20

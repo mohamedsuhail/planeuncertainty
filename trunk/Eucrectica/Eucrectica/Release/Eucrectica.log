@@ -1,0 +1,24 @@
+﻿Build started 31/08/2011 11:18:15.
+     1>Project "D:\Projects\Eucrectica\Eucrectica\Eucrectica.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\Eucrectica.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../Type_And_Define_Library /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /FISafe_Includes.h /analyze- /errorReport:prompt Application_Main.cpp -D_SCL_SECURE_NO_WARNINGS 
+         Application_Main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Projects\Eucrectica\Release\Eucrectica.exe" /NOLOGO ..\Haaf\lib\vc\hge.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBC.LIB /MANIFEST /ManifestFile:"Release\Eucrectica.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Projects\Eucrectica\Release\Eucrectica.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Projects\Eucrectica\Release\Eucrectica.lib" /MACHINE:X86 Release\Application_Main.obj
+         D:\Projects\Eucrectica\Release\HGERenderer.lib
+         D:\Projects\Eucrectica\Release\OpenSourceResources.lib
+         Generating code
+         Finished generating code
+         Eucrectica.vcxproj -> D:\Projects\Eucrectica\Release\Eucrectica.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Projects\Eucrectica\Release\Eucrectica.exe;#1" /manifest Release\Eucrectica.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\Eucrectica.unsuccessfulbuild".
+         Touching "Release\Eucrectica.lastbuildstate".
+     1>Done Building Project "D:\Projects\Eucrectica\Eucrectica\Eucrectica.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.04

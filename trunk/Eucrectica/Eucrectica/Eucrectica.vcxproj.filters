@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Application_Main.cpp" />
+    <ClCompile Include="ContentLoader\ContentLoader.cpp">
+      <Filter>ContentLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="World\World.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\Map.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelGenerator\LevelGenerator.cpp">
+      <Filter>LevelGenerator</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="World">
+      <UniqueIdentifier>{43008fae-1c20-4fbd-8f6e-48124fcd8b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ContentLoader">
+      <UniqueIdentifier>{49fc88b3-171d-4456-a7ab-6361480e0a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{6537efd3-8462-47a7-ad01-7f1426ef12b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LevelGenerator">
+      <UniqueIdentifier>{98fb41a0-3612-422b-9f80-e5d8e50c0f36}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ContentLoader\ContentLoader.h">
+      <Filter>ContentLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Entity.h" />
+    <ClInclude Include="World\World.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\Map.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelGenerator\LevelGenerator.h">
+      <Filter>LevelGenerator</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

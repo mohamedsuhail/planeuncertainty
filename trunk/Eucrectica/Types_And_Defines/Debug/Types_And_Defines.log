@@ -1,0 +1,12 @@
+﻿Build started 18/09/2011 15:49:44.
+     1>Project "D:\Projects\Eucrectica\Types_And_Defines\Types_And_Defines.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Types_And_Defines.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       FinalizeBuildStatus:
+         Deleting file "Debug\Types_And_Defines.unsuccessfulbuild".
+         Touching "Debug\Types_And_Defines.lastbuildstate".
+     1>Done Building Project "D:\Projects\Eucrectica\Types_And_Defines\Types_And_Defines.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.15
