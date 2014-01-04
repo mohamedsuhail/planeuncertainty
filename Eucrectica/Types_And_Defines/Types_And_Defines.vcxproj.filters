@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Defines">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Types">
+      <UniqueIdentifier>{3b866882-61c1-49d8-a4dd-299aeb426cea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{d7b182fb-58b0-4d2d-a2a0-29c06948072a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Type_And_Define_Library\GlobalDefines.h">
+      <Filter>Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Type_And_Define_Library\Safe_Includes.h">
+      <Filter>Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Type_And_Define_Library\static_vector.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Type_And_Define_Library\Vector.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="InputTypes.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderer.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Type_And_Define_Library\ReadMe.txt">
+      <Filter>Defines</Filter>
+    </None>
+  </ItemGroup>
+</Project>
