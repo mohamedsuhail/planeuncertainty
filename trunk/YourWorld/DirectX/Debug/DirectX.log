@@ -1,0 +1,21 @@
+﻿Build started 22/12/2013 11:37:04.
+     1>Project "D:\Projects\YourWorld\DirectX\DirectX.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\DirectX.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include" /I../OpenSourceResources /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _SCL_SECURE_NO_WARNINGS /D _DEBUG /D _LIB /D D3D_DEBUG_INFO /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /FIstatic_vector.h /FI../GlobalDefines.h /analyze- /errorReport:prompt Camera.cpp DirectX.cpp
+         DirectX.cpp
+         Camera.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\Projects\YourWorld\Debug\DirectX.lib" /NOLOGO Debug\Camera.obj
+         Debug\DirectX.obj
+         DirectX.vcxproj -> D:\Projects\YourWorld\Debug\DirectX.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\DirectX.unsuccessfulbuild".
+         Touching "Debug\DirectX.lastbuildstate".
+     1>Done Building Project "D:\Projects\YourWorld\DirectX\DirectX.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.27
