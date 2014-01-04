@@ -1,0 +1,26 @@
+﻿Build started 14/08/2011 16:29:17.
+     1>Project "D:\Projects\YourWorld\YourWorld\YourWorld.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Final\YourWorld.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../OpenSourceResources /I../DirectX /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _FINAL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Final\\" /Fd"Final\vc100.pdb" /Gd /TP /FIstatic_vector.h /FI../GlobalDefines.h /analyze- /errorReport:prompt Application\Application_Win32.cpp
+         Application_Win32.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Projects\YourWorld\Final\YourWorld.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Final\YourWorld.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Projects\YourWorld\Final\YourWorld.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Projects\YourWorld\Final\YourWorld.lib" /MACHINE:X86 Final\Application_Win32.obj
+         D:\Projects\YourWorld\Final\OpenSourceResources.lib
+         D:\Projects\YourWorld\Final\DirectX.lib
+         Generating code
+     1>d:\projects\yourworld\directx\directx.cpp(123): warning C4715: 'DirectX::LoadShaders' : not all control paths return a value
+         Finished generating code
+         YourWorld.vcxproj -> D:\Projects\YourWorld\Final\YourWorld.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Projects\YourWorld\Final\YourWorld.exe;#1" /manifest Final\YourWorld.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Final\YourWorld.unsuccessfulbuild".
+         Touching "Final\YourWorld.lastbuildstate".
+     1>Done Building Project "D:\Projects\YourWorld\YourWorld\YourWorld.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.72
