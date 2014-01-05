@@ -1,25 +1,17 @@
-﻿Build started 22/12/2013 11:36:58.
-     1>Project "D:\Projects\YourWorld\OpenSourceResources\OpenSourceResources.vcxproj" on node 2 (build target(s)).
+﻿Build started 05/01/2014 03:06:57.
+     1>Project "D:\Projects\planeuncertainty\YourWorld\OpenSourceResources\OpenSourceResources.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\OpenSourceResources.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _SCL_SECURE_NO_WARNINGS /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /FI../GlobalDefines.h /analyze- /errorReport:prompt tinystr.cpp tinyxml.cpp tinyxmlerror.cpp tinyxmlparser.cpp
-         tinyxmlparser.cpp
-         tinyxmlerror.cpp
-         tinyxml.cpp
-         tinystr.cpp
-         Generating Code...
+         All outputs are up-to-date.
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\Projects\YourWorld\Debug\OpenSourceResources.lib" /NOLOGO Debug\tinystr.obj
-         Debug\tinyxml.obj
-         Debug\tinyxmlerror.obj
-         Debug\tinyxmlparser.obj
-         OpenSourceResources.vcxproj -> D:\Projects\YourWorld\Debug\OpenSourceResources.lib
+         All outputs are up-to-date.
+         OpenSourceResources.vcxproj -> D:\Projects\planeuncertainty\YourWorld\Debug\OpenSourceResources.lib
        FinalizeBuildStatus:
          Deleting file "Debug\OpenSourceResources.unsuccessfulbuild".
          Touching "Debug\OpenSourceResources.lastbuildstate".
-     1>Done Building Project "D:\Projects\YourWorld\OpenSourceResources\OpenSourceResources.vcxproj" (build target(s)).
+     1>Done Building Project "D:\Projects\planeuncertainty\YourWorld\OpenSourceResources\OpenSourceResources.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.21
+Time Elapsed 00:00:00.02

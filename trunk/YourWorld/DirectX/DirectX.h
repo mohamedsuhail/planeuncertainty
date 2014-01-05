@@ -66,6 +66,9 @@ private:
 	IDirect3DVertexDeclaration9* m_declaration;
 	s_shader m_SimpleSurfaceShader;
 	Camera m_Camera;
+
+	LPDIRECT3DTEXTURE9 pPyramideTexture;
+	LPDIRECT3DVERTEXBUFFER9 v_buffer;
 };
 
 #endif

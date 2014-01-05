@@ -47,8 +47,8 @@ bool DirectX::InitD3D(HWND hWnd, UINT uiWidth, UINT uiHeight)
 
 	D3DVERTEXELEMENT9 decl[] =
 	{
-		{ 0,  0, D3DDECLTYPE_FLOAT3,   D3DDECLMETHOD_DEFAULT, D3DDECLUSAGE_POSITION, 0 },
-		//{ 0, 12, D3DDECLTYPE_FLOAT3,   D3DDECLMETHOD_DEFAULT, D3DDECLUSAGE_NORMAL,   0 },
+		{ 0,  0, D3DDECLTYPE_FLOAT2,   D3DDECLMETHOD_DEFAULT, D3DDECLUSAGE_POSITION, 0 },
+		{ 0, 8, D3DDECLTYPE_FLOAT2,   D3DDECLMETHOD_DEFAULT, D3DDECLUSAGE_TEXCOORD,   0 },
 		D3DDECL_END( )
 	};
 
@@ -56,25 +56,49 @@ bool DirectX::InitD3D(HWND hWnd, UINT uiWidth, UINT uiHeight)
 	{
 		return false;
 	}
+
+	HRESULT result;
+	if( result = D3DXCreateTextureFromFile(m_d3ddev,
+		TEXT("D:\\Projects\\planeuncertainty\\YourWorld\\texture.png"),
+		&pPyramideTexture) != S_OK )
+	{
+		return false;
+	}
+
 	return true;
 }
 
 struct CUSTOMVERTEX
 {
-	float x, y, z, nx, ny, nz;    // from the D3DFVF_XYZRHW flag
+	//float x, y;    // from the D3DFVF_XYZRHW flag
+	D3DXVECTOR2 vec;
+	D3DXVECTOR2 texcoord;
 };
 
 void DirectX::render_frame()
 {
 	CUSTOMVERTEX OurVertices[] =
 	{
-		{0.0f, 0.0f, 0.0f,  0,1,0},
-		{0.5f, 1.0f, 0.0f, 0,1,0},
-		{1.0f, 0.0f, 0.0f, 0,1,0},
+		D3DXVECTOR2(-1.f,0.f), D3DXVECTOR2(0.f,1.f),
+		D3DXVECTOR2(-1.f,1.f), D3DXVECTOR2(0.f,0.f),
+		D3DXVECTOR2(1.f,0.f), D3DXVECTOR2(1.f,1.f),
+
+		D3DXVECTOR2(-1.f,1.f), D3DXVECTOR2(0.f,0.f),
+		D3DXVECTOR2(1.f,1.f), D3DXVECTOR2(1.f,0.f),
+		D3DXVECTOR2(1.f,0.f), D3DXVECTOR2(1.f,1.f),
+
+
+		//{0.0f, 0.0f/*, 0.0f*/},
+		//{0.1f, 0.1f/*, 0.0f*/},
+		//{0.1f, 0.0f/*, 0.0f*/},
+		
+		
+		
+		
 	};
 	LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL; 
 	// create a vertex buffer interface called v_buffer
-	HRESULT res = m_d3ddev->CreateVertexBuffer(3*sizeof(CUSTOMVERTEX),
+	HRESULT res = m_d3ddev->CreateVertexBuffer(2*3*sizeof(CUSTOMVERTEX),
 		0,
 		0,
 		D3DPOOL_MANAGED,
@@ -88,25 +112,37 @@ void DirectX::render_frame()
 	memcpy(pVoid, OurVertices, sizeof(OurVertices));
 	v_buffer->Unlock();
 
-	
+	float rotation(0);
+
+	D3DXMATRIX matRotationX, matRotationY;
+	//x rotation (NEW)
+	D3DXMatrixRotationZ(&matRotationX,rotation * 0.0174532925f );
+	//y rotation (NEW)
+
+
+
+	//MOVE ME
+	D3DXHANDLE MatrixHandle = m_SimpleSurfaceShader.Effect->GetParameterByName(0, "World");
+	D3DXHANDLE TextureHandle = m_SimpleSurfaceShader.Effect->GetParameterByName(0,"Sprite");
+
+
 	m_d3ddev->SetVertexDeclaration(m_declaration);
 	m_d3ddev->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_ZERO);
 	m_d3ddev->SetRenderState(D3DRS_ALPHABLENDENABLE,FALSE);
-	m_d3ddev->SetRenderState( D3DRS_FILLMODE, D3DFILL_WIREFRAME );
+	//m_d3ddev->SetRenderState( D3DRS_FILLMODE, D3DFILL_WIREFRAME );
 	// clear the window to a deep blue
-	m_d3ddev->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
+	m_d3ddev->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(100, 40, 250), 1.0f, 0);
 
 	m_d3ddev->BeginScene();    // begins the 3D scene
 	// select the vertex buffer to display
 	m_d3ddev->SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));
+	m_SimpleSurfaceShader.Effect->SetMatrix(MatrixHandle,&(matRotationX) );
+	m_SimpleSurfaceShader.Effect->SetTexture(TextureHandle, pPyramideTexture);
 
-	D3DXMATRIX WVP;
-	WVP = m_Camera.BuildViewMatrix() * BuildProjectionMatrix();
-	m_SimpleSurfaceShader.Effect->SetMatrix(m_SimpleSurfaceShader.Handles.WVPmtx, &WVP);
 	m_SimpleSurfaceShader.Effect->Begin(0,0);
 	m_SimpleSurfaceShader.Effect->BeginPass(0);
 	// copy the vertex buffer to the back buffer
-	res = m_d3ddev->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
+	res = m_d3ddev->DrawPrimitive(D3DPT_TRIANGLELIST         , 0, 2);
 	m_SimpleSurfaceShader.Effect->EndPass();
 	m_SimpleSurfaceShader.Effect->End();
 
@@ -126,7 +162,7 @@ bool DirectX::LoadShaders()
 {
 	if( D3DXCreateEffectFromFile(m_d3ddev,L"../DirectX/SimpleSurface.fx",0,0,D3DXSHADER_DEBUG,0,&m_SimpleSurfaceShader.Effect,0) != S_OK)
 	{
-		LOG(L"Failed to load SimpleSurface");
+		LOG(L"Failed to load SimpleSurface\n");
 		return false;
 	}
 	m_SimpleSurfaceShader.Handles.WVPmtx = m_SimpleSurfaceShader.Effect->GetParameterByName(0,"WorldViewProj");
